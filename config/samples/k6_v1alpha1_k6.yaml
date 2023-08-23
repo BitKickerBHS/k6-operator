@@ -9,3 +9,4 @@ spec:
     configMap:
       name: k6-test
       file: test.js
+arguments: --tag testid=k6-output-grafana-9 --out experimental-prometheus-rw
