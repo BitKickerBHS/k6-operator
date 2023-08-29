@@ -9,7 +9,7 @@ spec:
     configMap:
       name: k6-test
       file: test.js
-  arguments: --tag testid=k6-output-grafana-9 --out experimental-prometheus-rw
+  arguments: --tag testid=k6-output-8-29-2023 --out experimental-prometheus-rw
   runner:
     resources:
       limits:
@@ -18,12 +18,8 @@ spec:
       requests:
         cpu: 100m
         memory: 500Mi
-    env:
-      - name: K6_PROMETHEUS_RW_SERVER_URL
-        value: http://mimirtestnginx2.iappd.beckshybrids.com/api/v1/push
-      - name: K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM
-        value: "false"
-      - name: K6_PROMETHEUS_RW_STALE_MARKERS
-        value: "true"
-      - name: K6_PROMETHEUS_RW_PUSH_INTERVAL
-        value: 2s
+    envFrom:
+     - configMapRef:
+         name: k6-mimir-config
+     - secretRef:
+         name: k6-mimir-secrets
