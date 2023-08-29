@@ -21,4 +21,4 @@ spec:
         memory: 500Mi
     envFrom:
      - secretRef:
-         name: k6-mimir-secret
+         name: k6-mimir-doppler-secret
