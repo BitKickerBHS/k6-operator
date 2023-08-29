@@ -10,7 +10,7 @@ spec:
     configMap:
       name: k6-test
       file: test.js
-  arguments: --tag testid=k6-output-8-29-2023 --out experimental-prometheus-rw
+  arguments: --tag testid=k6-output-8-29-2023-02 --out experimental-prometheus-rw
   runner:
     resources:
       limits:
