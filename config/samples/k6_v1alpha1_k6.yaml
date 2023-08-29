@@ -22,4 +22,4 @@ spec:
      - configMapRef:
          name: k6-mimir-config
      - secretRef:
-         name: k6-mimir-secrets
+         name: k6-mimir-secret
