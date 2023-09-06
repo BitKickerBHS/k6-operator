@@ -3,12 +3,16 @@ apiVersion: k6.io/v1alpha1
 kind: K6
 metadata:
   name: k6-sample
+  namespace: k6
 spec:
   parallelism: 5
   cleanup: post
   script:
-    configMap:
-      name: k6-test
+    volumeClaim:
+      name: k6-pvc-test
+      # test.js should exist inside /test/ folder.
+      # And, All the js files and directories test.js
+      # is importing from should be inside the same directory as well.
       file: test.js
   arguments: --tag testid=k6-output-8-29-2023-02 --out experimental-prometheus-rw
   runner:
