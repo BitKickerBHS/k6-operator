@@ -14,7 +14,7 @@ spec:
       # And, All the js files and directories test.js
       # is importing from should be inside the same directory as well.
       file: test.js
-  arguments: --tag testid=$K6_JOB_TAG --out experimental-prometheus-rw
+  arguments: --tag testid=$(K6_JOB_TAG) --out experimental-prometheus-rw
   runner:
     resources:
       limits:
